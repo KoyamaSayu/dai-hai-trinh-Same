@@ -30,8 +30,10 @@ body{
 }
 
 #hotspots{
+
     position:absolute;
     inset:0;
+
 }
 
 /* ==========================
@@ -42,27 +44,322 @@ body{
 
     position:absolute;
 
-    border-radius:50%;
-
     cursor:pointer;
 
-    transition:.25s;
+    transition:
+        transform .25s,
+        filter .25s;
 
 }
 
+.island img{
 
-/* Hover */
+    display:block;
+
+    width:100%;
+
+    pointer-events:none;
+
+    user-select:none;
+
+}
+
+/* Đảo nổi trên sóng */
+.island-float{
+
+    animation:float 3.8s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+.delay1{
+
+animation-delay:.7s;
+
+}
+
+.delay2{
+
+animation-delay:1.4s;
+
+}
+
+.delay3{
+
+animation-delay:2.1s;
+
+}
 
 .island:hover{
 
-    background:rgba(255,255,255,.18);
+    transform:
 
-    outline:4px solid gold;
+        translateY(-15px)
 
-    box-shadow:
+        scale(1.05);
 
-        0 0 30px gold,
+    filter:
 
-        inset 0 0 20px rgba(255,255,255,.4);
+        brightness(1.12)
+
+        drop-shadow(0 0 18px rgba(255,220,80,.8));
+
+}
+
+.island:active{
+
+transform:scale(.95);
+
+}
+
+/* Bóng dưới đảo */
+.island::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-18px;
+
+    width:70%;
+
+    height:18px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.25);
+
+    filter:blur(12px);
+
+    animation:shadow 3.8s ease-in-out infinite;
+
+}
+
+@keyframes shadow{
+
+0%{
+
+transform:translateX(-50%) scale(.95);
+
+opacity:.35;
+
+}
+
+50%{
+
+transform:translateX(-50%) scale(.75);
+
+opacity:.15;
+
+}
+
+100%{
+
+transform:translateX(-50%) scale(.95);
+
+opacity:.35;
+
+}
+
+}
+
+#island12{
+
+animation:
+
+    float 4s ease-in-out infinite,
+
+    glow 2s infinite;
+
+}
+
+@keyframes glow{
+
+0%{
+
+filter:drop-shadow(0 0 0 gold);
+
+}
+
+50%{
+
+filter:drop-shadow(0 0 25px gold);
+
+}
+
+100%{
+
+filter:drop-shadow(0 0 0 gold);
+
+}
+
+}
+
+/* Sóng nước dưới đảo */
+.island::before{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+bottom:-8px;
+
+width:75%;
+
+height:10px;
+
+transform:translateX(-50%);
+
+background:
+
+radial-gradient(
+
+ellipse,
+
+rgba(255,255,255,.28),
+
+transparent
+
+);
+
+filter:blur(6px);
+
+}
+
+/* Bài trí bố cục */
+#island1{
+
+    left:18%;
+    top:16%;
+
+    width:17%;
+
+}
+
+#island2{
+
+    left:38%;
+    top:9%;
+
+    width:15%;
+
+}
+
+#island3{
+
+    left:58%;
+    top:10%;
+
+    width:15%;
+
+}
+
+#island4{
+
+    left:77%;
+    top:15%;
+
+    width:16%;
+
+}
+
+#island5{
+
+    left:81%;
+    top:42%;
+
+    width:17%;
+
+}
+
+#island6{
+
+    left:78%;
+    top:64%;
+
+    width:18%;
+
+}
+
+#island7{
+
+    left:60%;
+    top:74%;
+
+    width:18%;
+
+}
+
+#island8{
+
+    left:38%;
+    top:76%;
+
+    width:20%;
+
+}
+
+#island9{
+
+    left:20%;
+    top:60%;
+
+    width:18%;
+
+}
+
+#island10{
+
+    left:32%;
+    top:40%;
+
+    width:18%;
+
+}
+
+#island11{
+
+    left:49%;
+    top:55%;
+
+    width:20%;
+
+}
+
+#island12{
+
+    left:50%;
+    top:28%;
+
+    width:28%;
+
+    transform:translateX(-50%);
 
 }
